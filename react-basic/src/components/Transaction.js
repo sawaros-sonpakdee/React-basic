@@ -8,7 +8,7 @@ const Transaction = () =>{
             <Item/>
             <Item/>
             <Item/>
-        </ul>ß
+        </ul>
     );
 
 }
