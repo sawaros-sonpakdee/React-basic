@@ -1,8 +1,9 @@
+import './Item.css'
 const Item = () =>{
-    const name = "พักโรงเเรม"
+    const name = "พักโรงเเรมญี่ปุ่น"
     const amount = 5000
     return(
-        <li>{name} <span> -{amount}</span></li>
+        <li className='item'>{name} <span> -{amount}</span></li>
     );
 }
 export default Item;
