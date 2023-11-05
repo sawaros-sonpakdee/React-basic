@@ -1,13 +1,14 @@
 import Item from "./Item";
+import  './Transaction.css'
 const Transaction = () =>{
     return (
-        <ul>
+        <ul className="item-list">
             <Item/>
             <Item/>
             <Item/>
             <Item/>
             <Item/>
-        </ul>
+        </ul>ß
     );
 
 }
