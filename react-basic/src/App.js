@@ -1,8 +1,6 @@
-import logo from './logo.svg';
 import './App.css';
 import React from "react";
 import Transaction from './components/Transaction';
-
 
 
 // const Title = () => <h1>โปรแกรมบัญชีรายรับ - รายจ่าย</h1>
@@ -38,7 +36,7 @@ import Transaction from './components/Transaction';
 function App() {
   const design = {color:'red' , textAlign:'center' , fontSize:'1.5rem'}
   return (
-    <div>
+    <div className='container'>
        <h1 style={design}>โปรแกรมบัญชีรายรับ - รายจ่าย</h1>
       <Transaction />
     </div>
