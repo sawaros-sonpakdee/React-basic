@@ -1,31 +1,44 @@
 import logo from './logo.svg';
 import './App.css';
 import React from "react";
-
-const Title = () => <h1>โปรแกรมบัญชีรายรับ - รายจ่าย</h1>
-const Description = () => <p>บันทึกข้อมูลบัญชีในแต่ละวัน</p>
+import Transaction from './components/Transaction';
 
 
-const Item = () => <li>เงินเดือน <span> +10,000</span></li>
 
-const Transaction = () => {
-  return (
-    // <ul>
-    //   <li>ค่าเดินทาง <span>-200</span></li>
-    //   <li>เงินเดือน<span>+20,000</span></li>
-    //   <li>เงินอาหาร<span>-500</span></li>
-    // </ul>
-    <ul>
-    <Item/>
-    </ul>
-  );
+// const Title = () => <h1>โปรแกรมบัญชีรายรับ - รายจ่าย</h1>
+// const Description = () => <p>บันทึกข้อมูลบัญชีในแต่ละวัน</p>
 
-}
+
+// const Item = () => <li>เงินเดือน <span> +10,000</span></li>
+
+// const Transaction = () => {
+//   return (
+//     // <ul>
+//     //   <li>ค่าเดินทาง <span>-200</span></li>
+//     //   <li>เงินเดือน<span>+20,000</span></li>
+//     //   <li>เงินอาหาร<span>-500</span></li>`1
+//     // </ul>
+//     <ul>
+//     <Item/>
+//     <Item/>
+//     <Item/>
+//     <Item/>
+//     <Item/>
+//     <Item/>
+//     </ul>
+//   );
+
+// }
+
+//การเรียกใช้ component
+//App = root components (mother)
+//title = child component 
+//description = child component 
+//transaction = child component 
 function App() {
   return (
     <div>
-      <Title />
-      <Description />
+       <h1>โปรแกรมบัญชีรายรับ - รายจ่าย</h1>
       <Transaction />
     </div>
   );
