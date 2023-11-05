@@ -36,9 +36,10 @@ import Transaction from './components/Transaction';
 //description = child component 
 //transaction = child component 
 function App() {
+  const design = {color:'red' , textAlign:'center' , fontSize:'1.5rem'}
   return (
     <div>
-       <h1>โปรแกรมบัญชีรายรับ - รายจ่าย</h1>
+       <h1 style={design}>โปรแกรมบัญชีรายรับ - รายจ่าย</h1>
       <Transaction />
     </div>
   );
