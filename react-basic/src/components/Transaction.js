@@ -1,7 +1,7 @@
 import Item from "./Item";
 import './Transaction.css'
 const Transaction = () => {
-    const data = [{ id: 1, title: "ค่ารักษาพยาบาล", amount: 2000 },
+    const data = [{ id: 1, title: 2000 , amount: "ทดสอบ" },
     { id: 2 ,title: "ค่าน้ำมัน", amount: 5000 },
     { id: 3 ,title: "ค่าเช่าบ้าน", amount: 80000 },
     { id: 4 , title: "ค่าจิปาถะ", amount: 60000 },
