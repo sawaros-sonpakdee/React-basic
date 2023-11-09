@@ -1,9 +1,9 @@
 import './Item.css'
-const Item = () =>{
-    const name = "พักโรงเเรมญี่ปุ่น"
-    const amount = 5000
+const Item = (props) =>{
+    const {title,amount} = props
     return(
-        <li className='item'>{name} <span> -{amount}</span></li>
+        // <li>{props.title}< span>{props.amount}</span></li>
+        <li>{title}< span>{amount}</span></li>
     );
 }
 export default Item;
