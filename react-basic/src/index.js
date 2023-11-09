@@ -1,16 +1,16 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 // import HelloFirstComponent from './components/HelloFirstComponent'
 
-// const root = ReactDOM.createRoot(document.getElementById('root'));
-// root.render(
-//   <React.StrictMode>
-//     <App />
-//   </React.StrictMode>
-// );
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+);
 
 // กาสร้าง function Component
 // function HelloComponent(){
@@ -24,7 +24,7 @@ import reportWebVitals from './reportWebVitals';
 //     return <h1>Hello first Component </h1>
 //   }
 // }
-ReactDOM.render(<App/>,document.getElementById('root'))
+// ReactDOM.render(<App/>,document.getElementById('root'))
 
 
 
