@@ -3,11 +3,11 @@ import './Transaction.css';
 import { v4 as uuidv4 } from 'uuid';
 
 const Transaction = () => {
-    const data = [{ id: 1, title: 2000 , amount: "ทดสอบ" },
-    { id: 2 ,title: "ค่าน้ำมัน", amount: 5000 },
-    { id: 3 ,title: "ค่าเช่าบ้าน", amount: 80000 },
-    { id: 4 , title: "ค่าจิปาถะ", amount: 60000 },
-    { id: 5, title: "ค่าเช่ารถ", amount: 50000 }
+    const data = [{ title: "ค่าเทอมลูก", amount: 15000 },
+    { title: "ค่าน้ำมัน", amount: 5000 },
+    { title: "ค่าเช่าบ้าน", amount: 80000 },
+    { title: "ค่าจิปาถะ", amount: 60000 },
+    { title: "ค่าเช่ารถ", amount: 50000 }
     ]
 
     return (
@@ -23,8 +23,8 @@ const Transaction = () => {
             {data.map((element) => {
                 // return  <Item title={element.title} amount = {element.amount} />
                 // return <Item {...element} key={element.id} />
-                // return <Item {...element} key={uuidv4()} />
-                return <Item title={element.title} amount={element.amount}  key={uuidv4()} />
+                return <Item {...element} key={uuidv4()} />
+                // return <Item title={element.title} amount={element.amount}  key={uuidv4()} />
             })}
         </ul>
     );

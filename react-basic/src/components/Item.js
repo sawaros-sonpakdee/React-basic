@@ -1,8 +1,8 @@
 import './Item.css'
-import PropTypes from 'prop-types';
+import PropTypes from 'prop-types'
 
 const Item = (props) =>{
-    const {title,amount} = props
+    const {title ,amount} = props
     return(
         // <li>{props.title}< span>{props.amount}</span></li>
         <li>{title}< span>{amount}</span></li>
@@ -10,8 +10,8 @@ const Item = (props) =>{
 }
 
 // prop-types
-Item.propsTypes = {
-    title:PropTypes.string,
-    amount:PropTypes.number
-}
+Item.propTypes = {
+    title: PropTypes.string.isRequired,
+    amount: PropTypes.number.isRequired
+};
 export default Item;
