@@ -11,6 +11,11 @@ root.render(
     <App />
   </React.StrictMode>
 );
+<<<<<<< Updated upstream
+=======
+
+
+>>>>>>> Stashed changes
 
 // กาสร้าง function Component
 // function HelloComponent(){
@@ -24,7 +29,11 @@ root.render(
 //     return <h1>Hello first Component </h1>
 //   }
 // }
+<<<<<<< Updated upstream
 // ReactDOM.render(<App/>,document.getElementById('root'))
+=======
+//  ReactDOM.render(<App/>,document.getElementById('root'))
+>>>>>>> Stashed changes
 
 
 
