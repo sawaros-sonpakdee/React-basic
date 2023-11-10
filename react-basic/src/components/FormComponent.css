@@ -1,0 +1,24 @@
+label{
+    display: inline-block;
+    margin:10px 0;
+    font-size: 16px;
+}
+input {
+    margin:10px 0;
+    border:1px solid gray;
+    border-radius: 2px;
+    display: block;
+    font-size: 16px;
+    padding: 10px;
+    width:100%;
+}
+button{
+    color: aliceblue;
+    background-color: chocolate;
+    border-radius: 5px;
+    display:block;
+    height: 50px;
+    width: 100%;
+    margin:20px 0;
+    font-size: 16px;
+}

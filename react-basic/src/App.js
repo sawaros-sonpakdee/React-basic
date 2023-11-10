@@ -1,7 +1,7 @@
 import './App.css';
 import React from "react";
 import Transaction from './components/Transaction';
-import FromComponent from './components/FromComponent';
+import FromComponent from './components/FormComponent';
 
 // const Title = () => <h1>โปรแกรมบัญชีรายรับ - รายจ่าย</h1>
 // const Description = () => <p>บันทึกข้อมูลบัญชีในแต่ละวัน</p>
