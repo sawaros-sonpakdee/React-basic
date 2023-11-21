@@ -36,7 +36,7 @@ import FromComponent from './components/FormComponent';
 //description = child component 
 //transaction = child component 
 function App() {
-  const design = {color:'red' , textAlign:'center' , fontSize:'1.5rem'}
+  const design = {color:'red' , textAlign:'center' , fontSize:'1.5rem'} 
   // const initData = [
   //   {id:1,title:"ค่ารักษาพยาบาล" ,amount:2000},
   //   {id:2,title:"จ่ายค่าประกัน",amount:300},

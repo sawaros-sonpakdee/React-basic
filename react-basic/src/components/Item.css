@@ -4,3 +4,10 @@
     font-size: 1.5rem;
     list-style-type: none;
 }
+
+.expense{
+    border-right:7px solid red;
+}
+.income{
+    border-right:7px solid  green;
+}
