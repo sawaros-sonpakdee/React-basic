@@ -1,14 +1,15 @@
 import Item from "./Item";
 import './Transaction.css';
-import { v4 as uuidv4 } from 'uuid';
+// import { v4 as uuidv4 } from 'uuid';
 
-const Transaction = () => {
-    const data = [{ title: "ค่าเทอมลูก", amount: 15000 },
-    { title: "ค่าน้ำมัน", amount: 5000 },
-    { title: "ค่าเช่าบ้าน", amount: 80000 },
-    { title: "ค่าจิปาถะ", amount: 60000 },
-    { title: "ค่าเช่ารถ", amount: 50000 }
-    ]
+const Transaction = (props) => {
+    // const data = [{ title: "ค่าเทอมลูก", amount: 15000 },
+    // { title: "ค่าน้ำมัน", amount: 5000 },
+    // { title: "ค่าเช่าบ้าน", amount: 80000 },
+    // { title: "ค่าจิปาถะ", amount: 60000 },
+    // { title: "ค่าเช่ารถ", amount: 50000 }
+    // ]
+    const {items} = props
 
     return (
         // <ul className="item-list">
@@ -20,10 +21,10 @@ const Transaction = () => {
         // </ul>
         // การ Map data
         <ul className="item-list">
-            {data.map((element) => {
+            {items.map((element) => {
                 // return  <Item title={element.title} amount = {element.amount} />
                 // return <Item {...element} key={element.id} />
-                return <Item {...element} key={uuidv4()} />
+                return <Item {...element} key={element.id} />
                 // return <Item title={element.title} amount={element.amount}  key={uuidv4()} />
             })}
         </ul>

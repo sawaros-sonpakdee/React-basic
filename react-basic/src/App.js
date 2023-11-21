@@ -1,7 +1,9 @@
 import './App.css';
-import React from "react";
+import React, { useState } from "react";
 import Transaction from './components/Transaction';
 import FromComponent from './components/FormComponent';
+
+// import { v4 as uuidv4 } from 'uuid';
 
 // const Title = () => <h1>โปรแกรมบัญชีรายรับ - รายจ่าย</h1>
 // const Description = () => <p>บันทึกข้อมูลบัญชีในแต่ละวัน</p>
@@ -35,11 +37,23 @@ import FromComponent from './components/FormComponent';
 //transaction = child component 
 function App() {
   const design = {color:'red' , textAlign:'center' , fontSize:'1.5rem'}
+  // const initData = [
+  //   {id:1,title:"ค่ารักษาพยาบาล" ,amount:2000},
+  //   {id:2,title:"จ่ายค่าประกัน",amount:300},
+  //   {id:3,title:"ค่าเดินทาง",amount:800}
+  // ]
+
+  const [items,setItems] = useState([])
+  const onAddNewItem = (newItem)=>{
+    setItems((prevItem)=>{
+      return [newItem,...prevItem]
+    })
+  }
   return (
     <div className='container'>
        <h1 style={design}>โปรแกรมบัญชีรายรับ - รายจ่าย</h1>
-       <FromComponent/>
-      <Transaction />
+       <FromComponent onAddItem={onAddNewItem}/>
+      <Transaction items={items}/>
     </div>
   );
 }

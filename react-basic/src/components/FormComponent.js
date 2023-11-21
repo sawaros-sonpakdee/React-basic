@@ -1,7 +1,9 @@
 import './FormComponent.css'
 import {useState} from 'react'
+import { v4 as uuidv4 } from 'uuid';
 
-const FormComponent = () => {
+
+const FormComponent = (props) => {
     const [title, setTitle] = useState('')
     const [amount, setAmount] = useState(0)
 
@@ -15,10 +17,12 @@ const FormComponent = () => {
         event.preventDefault()
         // console.log("บันทึกข้อมูลเรียบร้อย")
         const itemData = {
+            id:uuidv4(),
             title: title,
             amount: Number(amount)
         }
-        console.log(itemData)
+        props.onAddItem(itemData)
+        // console.log(itemData)
         setTitle('')
         setAmount(0)
     }
