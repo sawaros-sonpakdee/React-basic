@@ -52,7 +52,11 @@ function App() {
     })
   }
   return (
-    <DataContext.Provider value={"Sawaros"}>
+    <DataContext.Provider value={
+      {income:50000,
+      expense:-8000
+      }
+    }>
       <div className='container'>
         <h1 style={design}>โปรแกรมบัญชีรายรับ - รายจ่าย</h1>
         <ReportComponent/>

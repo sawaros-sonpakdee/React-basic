@@ -1,7 +1,8 @@
+import { useContext } from "react";
 import Item from "./Item";
 import './Transaction.css';
-import DataContext from "../data/DataContext"; 
-import { useContext } from "react";
+import DataContext from "../data/DataContext";
+
 // import { v4 as uuidv4 } from 'uuid';
 
 const Transaction = (props) => {
@@ -11,8 +12,9 @@ const Transaction = (props) => {
     // { title: "ค่าจิปาถะ", amount: 60000 },
     // { title: "ค่าเช่ารถ", amount: 50000 }
     // ]
-    const {items} = props
-    const name = useContext(DataContext)
+    const { items } = props
+    const { income, expense } = useContext(DataContext)
+
     return (
         // <ul className="item-list">
         //     <Item title={data[0].title} amount = {data[0].amount} />
@@ -23,18 +25,19 @@ const Transaction = (props) => {
         // </ul>
         // การ Map data
         <div>
-        <ul className="item-list">
-            {items.map((element) => {
-                // return  <Item title={element.title} amount = {element.amount} />
-                // return <Item {...element} key={element.id} />
-                return <Item {...element} key={element.id} />
-                // return <Item title={element.title} amount={element.amount}  key={uuidv4()} />
-            })}
-        </ul>
-        {/* <DataContext.Consumer>
+            <ul className="item-list">
+                {items.map((element) => {
+                    // return  <Item title={element.title} amount = {element.amount} />
+                    // return <Item {...element} key={element.id} />
+                    return <Item {...element} key={element.id} />
+                    // return <Item title={element.title} amount={element.amount}  key={uuidv4()} />
+                })}
+            </ul>
+            {/* <DataContext.Consumer>
             {value=><p>{value}</p>}
         </DataContext.Consumer> */}
-        {name}
+            <p>รายรับ: {income} <p>
+            </p> รายจ่าย:{expense}</p>
         </div>
     );
 
