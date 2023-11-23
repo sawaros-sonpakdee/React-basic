@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import Transaction from './components/Transaction';
 import FromComponent from './components/FormComponent';
 import DataContext from './data/DataContext';
+import ReportComponent from './components/ReportComponent';
 
 // import { v4 as uuidv4 } from 'uuid';
 
@@ -51,9 +52,10 @@ function App() {
     })
   }
   return (
-    <DataContext.Provider value={"บาท"}>
+    <DataContext.Provider value={"Sawaros"}>
       <div className='container'>
         <h1 style={design}>โปรแกรมบัญชีรายรับ - รายจ่าย</h1>
+        <ReportComponent/>
         <FromComponent onAddItem={onAddNewItem} />
         <Transaction items={items} />
       </div>

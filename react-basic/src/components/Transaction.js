@@ -1,7 +1,7 @@
 import Item from "./Item";
 import './Transaction.css';
-import DataContext from "../data/DataContext";
-
+import DataContext from "../data/DataContext"; 
+import { useContext } from "react";
 // import { v4 as uuidv4 } from 'uuid';
 
 const Transaction = (props) => {
@@ -12,7 +12,7 @@ const Transaction = (props) => {
     // { title: "ค่าเช่ารถ", amount: 50000 }
     // ]
     const {items} = props
-
+    const name = useContext(DataContext)
     return (
         // <ul className="item-list">
         //     <Item title={data[0].title} amount = {data[0].amount} />
@@ -31,9 +31,10 @@ const Transaction = (props) => {
                 // return <Item title={element.title} amount={element.amount}  key={uuidv4()} />
             })}
         </ul>
-        <DataContext.Consumer>
+        {/* <DataContext.Consumer>
             {value=><p>{value}</p>}
-        </DataContext.Consumer>
+        </DataContext.Consumer> */}
+        {name}
         </div>
     );
 
