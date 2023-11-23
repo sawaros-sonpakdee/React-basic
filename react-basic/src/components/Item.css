@@ -11,3 +11,6 @@
 .income{
     border-right:7px solid  green;
 }
+.expense span ,.income span{
+    margin:0px;
+}

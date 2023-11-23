@@ -1,5 +1,7 @@
 import Item from "./Item";
 import './Transaction.css';
+import DataContext from "../data/DataContext";
+
 // import { v4 as uuidv4 } from 'uuid';
 
 const Transaction = (props) => {
@@ -20,6 +22,7 @@ const Transaction = (props) => {
         //     <Item title="ค่าเดินทาง" amount = "5000" />
         // </ul>
         // การ Map data
+        <div>
         <ul className="item-list">
             {items.map((element) => {
                 // return  <Item title={element.title} amount = {element.amount} />
@@ -28,6 +31,10 @@ const Transaction = (props) => {
                 // return <Item title={element.title} amount={element.amount}  key={uuidv4()} />
             })}
         </ul>
+        <DataContext.Consumer>
+            {value=><p>{value}</p>}
+        </DataContext.Consumer>
+        </div>
     );
 
 }
