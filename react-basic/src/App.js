@@ -1,9 +1,10 @@
 import './App.css';
-import React, { useState } from "react";
+import { useEffect, useState } from "react";
 import Transaction from './components/Transaction';
 import FromComponent from './components/FormComponent';
 import DataContext from './data/DataContext';
 import ReportComponent from './components/ReportComponent';
+
 
 // import { v4 as uuidv4 } from 'uuid';
 
@@ -39,22 +40,44 @@ import ReportComponent from './components/ReportComponent';
 //transaction = child component 
 function App() {
   const design = { color: 'red', textAlign: 'center', fontSize: '1.5rem' }
-  // const initData = [
-  //   {id:1,title:"ค่ารักษาพยาบาล" ,amount:2000},
-  //   {id:2,title:"จ่ายค่าประกัน",amount:300},
-  //   {id:3,title:"ค่าเดินทาง",amount:800}
+
+  //stateเริ่มต้นที่เก็บข้อมูล
+  // const initState =[
+  //   {id:1,title:"ค่ารักษาพยาบาล" ,amount:-2000},
+  //   {id:2,title:"จ่ายค่าประกัน",amount:-300},
+  //   {id:3,title:"ค่าเดินทาง",amount:-800},
+  //   {id:4,title:"ค่าบ้าน",amount:-3000},
+  //   {id:5,title:"ค่างานพิเศษ",amount:4000}
   // ]
 
   const [items, setItems] = useState([])
+
+  const [reportIncome,setReportIncome] = useState(0)
+  const [reportExpense,setReportExpense] = useState(0)
+
   const onAddNewItem = (newItem) => {
     setItems((prevItem) => {
       return [newItem, ...prevItem]
     })
   }
+  //คำนวณ
+  useEffect(()=>{
+      const amounts = items.map(items=>items.amount)
+      // console.log(amounts)
+      const income = amounts.filter(element=>element>0).reduce((total,element)=>total+=element,0)
+      const expense = (amounts.filter(element=>element<0).reduce((total,element)=>total+=element,0))*-1
+      console.log("รายได้ = ", income)
+      console.log("รายจ่าย = ", expense)
+      // const summary = income-expense
+      // console.log("ยอดคงเหลืือ   =",summary)
+      setReportIncome(income)
+      setReportExpense(expense)
+      
+  },[items,reportIncome,reportExpense])
   return (
     <DataContext.Provider value={
-      {income:50000,
-      expense:-8000
+      {income: reportIncome,
+      expense:-reportExpense
       }
     }>
       <div className='container'>
