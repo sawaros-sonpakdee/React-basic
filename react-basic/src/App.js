@@ -19,7 +19,7 @@ import ReportComponent from './components/ReportComponent';
 //     // <ul>
 //     //   <li>ค่าเดินทาง <span>-200</span></li>
 //     //   <li>เงินเดือน<span>+20,000</span></li>
-//     //   <li>เงินอาหาร<span>-500</span></li>`1
+//     //   <li>เงินอาหาร<span>-500</span></li>
 //     // </ul>
 //     <ul>
 //     <Item/>
