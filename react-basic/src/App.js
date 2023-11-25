@@ -1,5 +1,5 @@
 import './App.css';
-import { useEffect, useState } from "react";
+import { useEffect, useReducer, useState } from "react";
 import Transaction from './components/Transaction';
 import FromComponent from './components/FormComponent';
 import DataContext from './data/DataContext';
@@ -52,8 +52,8 @@ function App() {
 
   const [items, setItems] = useState([])
 
-  const [reportIncome,setReportIncome] = useState(0)
-  const [reportExpense,setReportExpense] = useState(0)
+  const [reportIncome, setReportIncome] = useState(0)
+  const [reportExpense, setReportExpense] = useState(0)
 
   const onAddNewItem = (newItem) => {
     setItems((prevItem) => {
@@ -61,32 +61,54 @@ function App() {
     })
   }
   //คำนวณ
-  useEffect(()=>{
-      const amounts = items.map(items=>items.amount)
-      // console.log(amounts)
-      const income = amounts.filter(element=>element>0).reduce((total,element)=>total+=element,0)
-      const expense = (amounts.filter(element=>element<0).reduce((total,element)=>total+=element,0))*-1
-      console.log("รายได้ = ", income)
-      console.log("รายจ่าย = ", expense)
-      // const summary = income-expense
-      // console.log("ยอดคงเหลืือ   =",summary)
-      setReportIncome(income)
-      setReportExpense(expense)
-      
-  },[items,reportIncome,reportExpense])
+  useEffect(() => {
+    const amounts = items.map(items => items.amount)
+    // console.log(amounts)
+    const income = amounts.filter(element => element > 0).reduce((total, element) => total += element, 0)
+    const expense = (amounts.filter(element => element < 0).reduce((total, element) => total += element, 0)) * -1
+    console.log("รายได้ = ", income)
+    console.log("รายจ่าย = ", expense)
+    // const summary = income-expense
+    // console.log("ยอดคงเหลืือ   =",summary)
+    setReportIncome(income)
+    setReportExpense(expense)
+
+  }, [items, reportIncome, reportExpense])
+
+  //reducer state
+  const [showReport,setShowReport] = useState(false)
+  const reducer = (state, action) => {
+    switch (action.type) {
+      case "SHOW":
+        // return state + action.payload
+        return setShowReport(true)
+      case "HIDE":
+        return setShowReport(false)
+        // return state - action.payload
+      // case "CLEAR":
+      //   return 0
+    }
+  }
+  const [result, dispatch] = useReducer(reducer, showReport)
   return (
     <DataContext.Provider value={
-      {income: reportIncome,
-      expense:-reportExpense
+      {
+        income: reportIncome,
+        expense: -reportExpense
       }
     }>
       <div className='container'>
-        <h1 style={design}>โปรแกรมบัญชีรายรับ - รายจ่าย</h1>
-        <ReportComponent/>
+        <h1 style={design}>แอพบัญชีรายรับ - รายจ่าย</h1>
+        {showReport && <ReportComponent/>}
         <FromComponent onAddItem={onAddNewItem} />
         <Transaction items={items} />
+        <h1>{result}</h1>
+        <button onClick={() => dispatch({ type: "SHOW", payload: 10 })}>แสดง</button>
+        <button onClick={() => dispatch({ type: "HIDE", payload: 5 })}>ซ่อน</button>
+        {/* <button onClick={() => dispatch({ type: "CLEAR" })}>ล้าง</button> */}
       </div>
     </DataContext.Provider>
+
   );
 }
 
