@@ -1,9 +1,17 @@
 import './App.css';
-import { useEffect, useReducer, useState } from "react";
+import { useEffect, useState } from "react";
 import Transaction from './components/Transaction';
-import FromComponent from './components/FormComponent';
+import FormComponent from './components/FormComponent';
 import DataContext from './data/DataContext';
 import ReportComponent from './components/ReportComponent';
+import React from 'react';
+// import ReactDOM from 'react-dom';
+import {
+  BrowserRouter as Router,
+  Route,
+  Link,
+  Routes
+} from 'react-router-dom';
 
 
 // import { v4 as uuidv4 } from 'uuid';
@@ -42,15 +50,15 @@ function App() {
   const design = { color: 'red', textAlign: 'center', fontSize: '1.5rem' }
 
   //stateเริ่มต้นที่เก็บข้อมูล
-  // const initState =[
-  //   {id:1,title:"ค่ารักษาพยาบาล" ,amount:-2000},
-  //   {id:2,title:"จ่ายค่าประกัน",amount:-300},
-  //   {id:3,title:"ค่าเดินทาง",amount:-800},
-  //   {id:4,title:"ค่าบ้าน",amount:-3000},
-  //   {id:5,title:"ค่างานพิเศษ",amount:4000}
-  // ]
+  const initData = [
+    { id: 1, title: "ค่ารักษาพยาบาล", amount: -2000 },
+    { id: 2, title: "จ่ายค่าประกัน", amount: -300 },
+    { id: 3, title: "ค่าเดินทาง", amount: 80000 },
+    // {id:4,title:"ค่าบ้าน",amount:-3000},
+    // {id:5,title:"ค่างานพิเศษ",amount:4000}
+  ]
 
-  const [items, setItems] = useState([])
+  const [items, setItems] = useState(initData)
 
   const [reportIncome, setReportIncome] = useState(0)
   const [reportExpense, setReportExpense] = useState(0)
@@ -70,41 +78,51 @@ function App() {
     console.log("รายจ่าย = ", expense)
     // const summary = income-expense
     // console.log("ยอดคงเหลืือ   =",summary)
-    setReportIncome(income)
-    setReportExpense(expense)
+    setReportIncome(income.toFixed(2))
+    setReportExpense(expense.toFixed(2))
 
   }, [items, reportIncome, reportExpense])
 
   //reducer state
-  const [showReport,setShowReport] = useState(false)
-  const reducer = (state, action) => {
-    switch (action.type) {
-      case "SHOW":
-        // return state + action.payload
-        return setShowReport(true)
-      case "HIDE":
-        return setShowReport(false)
-        // return state - action.payload
-      // case "CLEAR":
-      //   return 0
-    }
-  }
-  const [result, dispatch] = useReducer(reducer, showReport)
+  // const [showReport,setShowReport] = useState(false)
+  // const reducer = (state, action) => {
+  //   switch (action.type) {
+  //     case "SHOW":
+  //       // return state + action.payload
+  //       return setShowReport(true)
+  //     case "HIDE":
+  //       return setShowReport(false)
+  //       // return state - action.payload
+  //     // case "CLEAR":
+  //     //   return 0
+  //   }
+  // }
+  // const [result, dispatch] = useReducer(reducer, showReport)
   return (
-    <DataContext.Provider value={
-      {
-        income: reportIncome,
-        expense: -reportExpense
-      }
-    }>
+    <DataContext.Provider value={{ income: reportIncome, expense: -reportExpense }}>
       <div className='container'>
         <h1 style={design}>แอพบัญชีรายรับ - รายจ่าย</h1>
-        {showReport && <ReportComponent/>}
-        <FromComponent onAddItem={onAddNewItem} />
-        <Transaction items={items} />
-        <h1>{result}</h1>
+        {/* {showReport && <ReportComponent/>} */}
+        <Router>
+          <div>
+            <ul className='horizontal-menu'>
+              <li>
+                <Link to="/">ข้อมูลบัญชี</Link>
+              </li>
+              <li>
+                <Link to="/insert">บันทึกข้อมูล</Link>
+              </li>
+            </ul>
+            <Routes>
+              <Route path="/" element={<ReportComponent />} ></Route>
+              <Route path='/insert' element={<><FormComponent onAddItem={onAddNewItem} /><Transaction items={items} /></>} />
+            </Routes>
+
+          </div>
+        </Router>
+        {/* <h1>{result}</h1>
         <button onClick={() => dispatch({ type: "SHOW", payload: 10 })}>แสดง</button>
-        <button onClick={() => dispatch({ type: "HIDE", payload: 5 })}>ซ่อน</button>
+        <button onClick={() => dispatch({ type: "HIDE", payload: 5 })}>ซ่อน</button> */}
         {/* <button onClick={() => dispatch({ type: "CLEAR" })}>ล้าง</button> */}
       </div>
     </DataContext.Provider>
