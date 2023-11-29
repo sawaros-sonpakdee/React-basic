@@ -103,7 +103,7 @@ function App() {
       <div className='container'>
         <h1 style={design}>แอพบัญชีรายรับ - รายจ่าย</h1>
         {/* {showReport && <ReportComponent/>} */}
-        {/* <Router>
+        <Router>
           <div>
             <ul className='horizontal-menu'>
               <li>
@@ -119,12 +119,7 @@ function App() {
             </Routes>
 
           </div>
-        </Router> */}
-        
-        
-
-        <ReportComponent />
-        <FormComponent onAddItem={onAddNewItem} /><Transaction items={items} />
+        </Router>
         {/* <h1>{result}</h1>
         <button onClick={() => dispatch({ type: "SHOW", payload: 10 })}>แสดง</button>
         <button onClick={() => dispatch({ type: "HIDE", payload: 5 })}>ซ่อน</button> */}
