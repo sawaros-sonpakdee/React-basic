@@ -7,7 +7,7 @@ import ReportComponent from './components/ReportComponent';
 import React from 'react';
 // import ReactDOM from 'react-dom';
 import {
-  BrowserRouter as Router,
+  HashRouter as Router,
   Route,
   Link,
   Routes
